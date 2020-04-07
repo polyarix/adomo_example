@@ -1,0 +1,28 @@
+/*
+*
+* Backpack Crud / Show
+*
+*/
+
+.alert-secondary {
+    background-color: #a66f5e !important;
+}
+
+.alert-btn-primary {
+    background-color: #92bdda !important;
+}
+
+.alert-working {
+    background-color: #b3da69 !important;
+}
+
+table {
+    background-repeat:no-repeat;
+    margin:0;
+}
+
+th, td {
+    border-bottom: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}

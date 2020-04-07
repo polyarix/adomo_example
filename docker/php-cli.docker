@@ -1,0 +1,21 @@
+FROM php:7.3-cli
+
+RUN pecl install -o -f redis && rm -rf /tmp/pear
+
+RUN apt-get update && apt-get install -y libpq-dev unzip mariadb-client libpng-dev libzip-dev zlib1g-dev libxml2-dev libc-client-dev libkrb5-dev supervisor nano cron  \
+    && docker-php-ext-install mbstring pdo_mysql gd exif dom zip
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/bin --filename=composer --quiet
+
+ENV COMPOSER_ALLOW_SUPERUSER 1
+
+ADD ./docker/supervisor/supervisord.conf /etc/supervisor/supervisord.conf
+ADD ./docker/supervisor/commands/ /etc/supervisor/conf.d/
+
+ADD /docker/cron/crontab /var/spool/cron/crontabs/root
+
+RUN chmod 0644 /var/spool/cron/crontabs/root
+
+WORKDIR /var/www
+
+ENTRYPOINT ["/usr/bin/supervisord", "-c", "/etc/supervisor/supervisord.conf"]

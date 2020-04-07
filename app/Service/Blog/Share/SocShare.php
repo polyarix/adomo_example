@@ -1,0 +1,70 @@
+<?php
+
+namespace App\Service\Blog\Share;
+
+class SocShare
+{
+
+    public function renderJs()
+    {
+        return '<script type="text/javascript" src="'. asset('/js/soc-share.js') .'"></script>';
+    } // end renderJs
+
+    public function twitter($params = array())
+    {
+        $entity = new Providers\Twitter($params);
+
+        return $entity;
+    } // end twitter
+
+    public function pinterest($params = array())
+    {
+        $entity = new Providers\Pinterest($params);
+
+        return $entity;
+    } // end pinterest
+
+    public function facebook($params = array())
+    {
+        $entity = new Providers\Facebook($params);
+
+        return $entity;
+    } // end facebook
+
+    public function gplus($params = array())
+    {
+        $entity = new Providers\GooglePlus($params);
+
+        return $entity;
+    } // end gplus
+
+    public function vk($params = array())
+    {
+        $entity = new Providers\Vkontakte($params);
+
+        return $entity;
+    } // end vk
+
+    public function tumblr($params = array())
+    {
+        $entity = new Providers\Tumblr($params);
+
+        return $entity;
+    } // end tumblr
+
+    public function ok($params = array())
+    {
+        $entity = new Providers\Odnoklassniki($params);
+
+        return $entity;
+    } // end ok
+
+    public function linkedin($params = array())
+    {
+        $entity = new Providers\Linkedin($params);
+
+        return $entity;
+    } // end linkedin
+
+}
+
