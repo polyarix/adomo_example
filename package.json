@@ -33,7 +33,7 @@
         "fancybox": "^3.0.1",
         "flatpickr": "^4.6.2",
         "font-awesome-filetypes": "^2.1.0",
-        "gsap": "^3.0.4",
+        "gsap": "^3.6.0",
         "jquery-lazy": "^1.7.10",
         "jquery-lazyload": "^1.9.7",
         "jquery-mask-plugin": "^1.14.16",
